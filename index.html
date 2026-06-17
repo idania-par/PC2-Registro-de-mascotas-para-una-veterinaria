@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VetCare — Sistema Veterinario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-wrapper" id="toast-wrapper"></div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">🐾</div>
+        <span class="logo-text">VetCare</span>
+        <span class="logo-badge">PRO</span>
+      </a>
+      <nav class="nav">
+        <a href="#formulario" class="nav-link">Registrar</a>
+        <a href="#listado" class="nav-link">Ver mascotas</a>
+        <a href="#formulario" class="nav-link nav-cta">+ Nueva mascota</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-mesh"></div>
+    <div class="hero-grid"></div>
+    <div class="container hero-inner">
+
+      <div class="hero-text">
+        <div class="hero-pill fade-up">
+          <span class="hero-pill-dot"></span>
+          Sistema activo · Clínica Veterinaria
+        </div>
+        <h1 class="hero-title fade-up-2">
+          La salud de tu mascota,<br />
+          <span class="accent">siempre en orden</span>
+        </h1>
+        <p class="hero-sub fade-up-3">
+          Registra pacientes, gestiona atenciones y lleva el historial médico de cada mascota desde un sistema moderno y fácil de usar.
+        </p>
+        <div class="hero-actions fade-up-3">
+          <a href="#formulario" class="btn-hero">
+            🐾 Registrar mascota
+          </a>
+          <a href="#listado" class="btn-hero-ghost">
+            Ver registros →
+          </a>
+        </div>
+        <div class="hero-stats fade-up-3">
+          <div>
+            <div class="hero-stat-num" id="stat-total">—</div>
+            <div class="hero-stat-label">Mascotas registradas</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">5</div>
+            <div class="hero-stat-label">Especies atendidas</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">6</div>
+            <div class="hero-stat-label">Tipos de atención</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-panel fade-up-2">
+        <p class="hero-panel-title">Especies que atendemos</p>
+        <div class="species-grid">
+          <div class="species-card">
+            <span class="species-emoji">🐶</span>
+            <span class="species-name">Perros</span>
+          </div>
+          <div class="species-card">
+            <span class="species-emoji">🐱</span>
+            <span class="species-name">Gatos</span>
+          </div>
+          <div class="species-card">
+            <span class="species-emoji">🐰</span>
+            <span class="species-name">Conejos</span>
+          </div>
+          <div class="species-card">
+            <span class="species-emoji">🦜</span>
+            <span class="species-name">Aves</span>
+          </div>
+        </div>
+        <div class="recent-badge">
+          <div class="recent-avatar">🐾</div>
+          <div class="recent-info">
+            <div class="recent-name">Sistema listo para registros</div>
+            <div class="recent-detail">Conectado a Supabase · Datos en tiempo real</div>
+          </div>
+          <div class="recent-time">ACTIVO</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FORMULARIO -->
+  <section id="formulario" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Nuevo registro</span>
+        <h2 class="section-title">Registrar mascota</h2>
+        <p class="section-sub">Completa la información de la mascota y los datos del dueño</p>
+      </div>
+
+      <div class="form-card">
+        <form id="form-mascota" autocomplete="off">
+
+          <div class="form-section-label">
+            <div class="form-section-icon">🐾</div>
+            Datos de la mascota
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="nombre_mascota">Nombre de la mascota</label>
+              <input type="text" id="nombre_mascota" placeholder="Ej: Rocky" required />
+            </div>
+            <div class="form-group">
+              <label for="especie_id">Especie</label>
+              <select id="especie_id" required>
+                <option value="">Cargando especies...</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="raza_id">Raza</label>
+              <select id="raza_id" required>
+                <option value="">Selecciona especie primero</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="edad_mascota">Edad (años)</label>
+              <input type="number" id="edad_mascota" placeholder="Ej: 3" min="0" required />
+            </div>
+            <div class="form-group">
+              <label for="peso">Peso (kg)</label>
+              <input type="number" id="peso" placeholder="Ej: 8.5" step="0.1" min="0" required />
+            </div>
+            <div class="form-group">
+              <label for="tipo_atencion_id">Tipo de atención</label>
+              <select id="tipo_atencion_id" required>
+                <option value="">Cargando...</option>
+              </select>
+            </div>
+            <div class="form-group form-group--full">
+              <label for="condicion_medica_id">Condición médica</label>
+              <select id="condicion_medica_id" required>
+                <option value="">Cargando...</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-section-label">
+            <div class="form-section-icon">👤</div>
+            Datos del dueño
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="nombre_dueno">Nombres</label>
+              <input type="text" id="nombre_dueno" placeholder="Ej: Juan Carlos" required />
+            </div>
+            <div class="form-group">
+              <label for="apellido_dueno">Apellidos</label>
+              <input type="text" id="apellido_dueno" placeholder="Ej: García López" required />
+            </div>
+            <div class="form-group">
+              <label for="dni_dueno">DNI</label>
+              <input type="text" id="dni_dueno" placeholder="Ej: 12345678" maxlength="8" required />
+            </div>
+            <div class="form-group">
+              <label for="celular">Celular</label>
+              <input type="tel" id="celular" placeholder="Ej: 987654321" required />
+            </div>
+            <div class="form-group form-group--full">
+              <label for="correo">Correo electrónico</label>
+              <input type="email" id="correo" placeholder="Ej: juan@correo.com" required />
+            </div>
+            <div class="form-group form-group--full">
+              <label for="observaciones">Observaciones</label>
+              <textarea id="observaciones" placeholder="Información adicional, antecedentes médicos, alergias conocidas..."></textarea>
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <span class="form-footer-note">Todos los campos marcados son obligatorios</span>
+            <button type="submit" class="btn-primary" id="btn-submit">
+              <span id="btn-text">Guardar registro</span>
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTADO -->
+  <section id="listado" class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Base de datos</span>
+        <h2 class="section-title">Mascotas registradas</h2>
+        <p class="section-sub">Consulta y filtra todos los registros del sistema</p>
+      </div>
+
+      <div class="filtros-bar">
+        <span class="filtros-label">Filtrar por especie</span>
+        <select id="filtro-especie">
+          <option value="">Todas las especies</option>
+        </select>
+        <button class="btn-secondary" id="btn-reload">↻ Actualizar</button>
+        <span class="filtros-count" id="filtros-count"></span>
+      </div>
+
+      <div id="loading" class="loading">
+        <div class="loading-spinner"></div>
+        Cargando registros...
+      </div>
+
+      <div id="tabla-container" class="hidden">
+        <div class="tabla-wrapper">
+          <table class="tabla" id="tabla-mascotas">
+            <thead>
+              <tr>
+                <th>Mascota</th>
+                <th>Edad / Peso</th>
+                <th>Dueño</th>
+                <th>DNI</th>
+                <th>Celular</th>
+                <th>Especie</th>
+                <th>Raza</th>
+                <th>Atención</th>
+                <th>Condición</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="empty-msg" class="empty-msg hidden">
+        <span class="empty-icon">🐾</span>
+        No hay mascotas registradas aún.<br />
+        <a href="#formulario" style="color:var(--teal-dark); font-weight:600; font-size:0.875rem;">Registrar la primera mascota →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">
+          <span style="font-size:1.2rem">🐾</span>
+          <span class="footer-brand-name">VetCare</span>
+        </div>
+        <p class="footer-copy">Sistema de gestión veterinaria · Todos los derechos reservados</p>
+      </div>
+      <div class="footer-links">
+        <a href="#formulario" class="footer-link">Registrar</a>
+        <a href="#listado" class="footer-link">Listado</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="Js/supabase.js"></script>
+  <script src="Js/catalogos.js"></script>
+  <script src="Js/form.js"></script>
+  <script src="Js/listado.js"></script>
+
+</body>
+</html>
